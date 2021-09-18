@@ -674,8 +674,11 @@ else
   # Default choices based on API level
   if [ "$API_LEVEL" -le 23 ]; then
     BYTECODE_REPAIR_METHOD="OAT2DEX"
-  elif [ "$API_LEVEL" -ge 24 ]; then
+  elif [ "$API_LEVEL" -ge 24 ] && [ "$API_LEVEL" -lt 30 ]; then
     BYTECODE_REPAIR_METHOD="OATDUMP"
+  elif [ "$API_LEVEL" -ge 30 ]; then
+    BYTECODE_REPAIR_METHOD="NONE"
+    FORCE_PREOPT=true
   fi
 fi
 
