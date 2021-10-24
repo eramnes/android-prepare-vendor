@@ -501,6 +501,9 @@ gen_board_cfg_mk() {
     # Android 11 workaround for including .vintf files in PRODUCT_COPY_FILES
     echo 'BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true'
 
+    # Android 12 workaround. We should be using cc_prebuilt_binary / cc_prebuilt_library_shared
+    echo 'BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true'
+
     # Update with user selected extra flags
     echo "$MK_FLAGS_LIST"
   } >> "$BOARD_CONFIG_VENDOR_MK"
